@@ -2,6 +2,7 @@ package de.chartsexplorer.chartsexplorer;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.text.Editable;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -11,7 +12,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
@@ -61,5 +61,28 @@ public class ChartsDB
 
     public String getYearData(String selectedYear) throws JSONException {
             return top100DB.getJSONArray(selectedYear).toString();
+    }
+
+    public ArrayList<Song> searchFor(String searchString) throws JSONException{
+
+        ArrayList<Song> searchResults = new ArrayList();
+
+        Iterator<String> keys = top100DB.keys();
+        while (keys.hasNext()){
+            JSONArray year = top100DB.getJSONArray(keys.next());
+
+            for (int i = 0; i < year.length(); i++) {
+
+                JSONObject jSong = (JSONObject) year.get(i);
+                if((jSong.getString("interpret").toLowerCase().contains(searchString.toLowerCase())) || (jSong.getString("title").toLowerCase().contains(searchString.toLowerCase())) ){
+                    Song song = new Song();
+                    song.setInterpret(jSong.getString("interpret"));
+                    song.setPosition(jSong.getString("pos"));
+                    song.setTitle(jSong.getString("title"));
+                    searchResults.add(song);
+                }
+            }
+        }
+        return searchResults;
     }
 }
