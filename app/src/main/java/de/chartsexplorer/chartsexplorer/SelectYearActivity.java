@@ -2,31 +2,40 @@ package de.chartsexplorer.chartsexplorer;
 
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
 
+import de.chartsexplorer.chartsexplorer.util.ChartsDB;
+import de.chartsexplorer.chartsexplorer.util.ConnectionDetector;
+
+import static de.chartsexplorer.chartsexplorer.R.string.msg_no_connection;
+
 public class SelectYearActivity extends AppCompatActivity {
 
     ChartsDB chartsDB;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.year_list);
+
+        ConnectionDetector cd = new ConnectionDetector(getApplicationContext());
+
+        // Check for internet connection
+        if (!cd.isConnectingToInternet()) {
+            // Internet Connection is not present
+            Toast.makeText(getApplicationContext(), R.string.msg_no_connection, Toast.LENGTH_SHORT).show();
+            // stop executing code by return
+            //return;
+        }
 
         try {
             chartsDB = new ChartsDB(getApplicationContext());

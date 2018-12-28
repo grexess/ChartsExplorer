@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detailsView"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical|center_horizontal"
@@ -10,13 +11,36 @@
     android:paddingTop="10dip"
     android:paddingBottom="10dip">
 
-    <ImageView
+ <!--   <ImageView
         android:id="@+id/artistView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:minWidth="300px"
+        android:minHeight="300px" />-->
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/artistView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
         android:minWidth="300px"
         android:minHeight="300px"
-        tools:srcCompat="@tools:sample/backgrounds/scenic[0]" />
+        app:civ_border_width="2dp"
+        app:civ_border_color="#008577"/>
+
+<!--    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        app:civ_border_width="1dp"
+        app:civ_border_color="#008577"/>-->
 
     <TextView
         android:id="@+id/songInterpret"
@@ -30,6 +54,7 @@
         android:id="@+id/songTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:gravity="center_horizontal"
         android:text="TextView" />
 
@@ -37,6 +62,7 @@
         android:id="@+id/songPlay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:layout_weight="1"
         app:srcCompat="@android:drawable/ic_media_play" />
 
@@ -44,9 +70,9 @@
         android:id="@+id/coverView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:contentDescription="TODO"
         android:minWidth="300px"
-        android:minHeight="300px"
-        tools:srcCompat="@tools:sample/backgrounds/scenic[0]" />
+        android:minHeight="300px" />
 
 </LinearLayout>
 

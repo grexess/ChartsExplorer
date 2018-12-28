@@ -1,8 +1,9 @@
-package de.chartsexplorer.chartsexplorer;
+package de.chartsexplorer.chartsexplorer.util;
 
-public class Song {
+public class SongSearch {
 
     private String position = "";
+    private String year = "";
     private String interpret = "";
     private String title = "";
 
@@ -12,6 +13,14 @@ public class Song {
 
     public String getPosition() {
         return position;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getYear() {
+        return year;
     }
 
     public void setInterpret(String interpret) {

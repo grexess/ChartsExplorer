@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ChartsExplorer</string>
+    <string name="msg_no_connection">Keine Internetverbindung! Keine Details zu einzelnen Titeln möglich.</string>
+    <string name="song_position">Platz</string>
+    <string name="loading_song_details">Lade Title-Details</string>
+    <string name="nothing_found">Keinen Titel gefunden bei iTunes.</string>
+    <string name="search">Suche</string>
+    <string name="search_hint">Mind. 3 Zeichen</string>
+</resources>

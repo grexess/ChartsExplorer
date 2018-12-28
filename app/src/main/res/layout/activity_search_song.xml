@@ -19,7 +19,7 @@
                 android:id="@+id/songSearch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Suche" />
+                android:hint="@string/search_hint" />
         </android.support.design.widget.TextInputLayout>
 
         <ListView
