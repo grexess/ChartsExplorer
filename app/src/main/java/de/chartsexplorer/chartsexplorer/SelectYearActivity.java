@@ -32,7 +32,7 @@ public class SelectYearActivity extends AppCompatActivity {
         // Check for internet connection
         if (!cd.isConnectingToInternet()) {
             // Internet Connection is not present
-            Toast.makeText(getApplicationContext(), R.string.msg_no_connection, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getResources().getString(R.string.msg_no_connection), Toast.LENGTH_SHORT).show();
             // stop executing code by return
             //return;
         }
